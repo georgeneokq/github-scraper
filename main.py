@@ -100,7 +100,7 @@ def main():
       while retries < 3:
         try:
           num_commits_element = driver.find_element(By.CSS_SELECTOR, '.d-none.d-sm-inline strong')
-          statistics_item['num_commits'] = num_commits_element.text
+          statistics_item['num_commits'] = int(num_commits_element.text)
           break
         except:
           retries += 1
