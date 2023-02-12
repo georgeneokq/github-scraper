@@ -181,8 +181,6 @@ def main():
   with open(f'{save_dir}/{file_name}', 'w+') as f:
     json.dump(statistics, f, indent=2)
 
-  wait_for_exit()
-
 
 ### Currently unused utility functions
 def switch_to_tab(tab_num: int, driver: webdriver.Chrome):
