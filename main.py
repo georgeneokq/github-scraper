@@ -182,39 +182,10 @@ def main():
     json.dump(statistics, f, indent=2)
 
 
-### Currently unused utility functions
-def switch_to_tab(tab_num: int, driver: webdriver.Chrome):
-  """
-  tab_num is zero-indexed.
-  If the tab number provided is out of range, it will switch to the latest tab.
-  """
-  _tab_num = tab_num
-  num_tabs = len(driver.window_handles)
-
-  if tab_num > num_tabs - 1:
-    print(f'Error switching to tab {tab_num}, switching to latest tab')
-    _tab_num = num_tabs - 1
-
-  driver.switch_to.window(driver.window_handles[_tab_num])
-
-def close_current_tab(driver):
-  driver.close()
-
-def close_all_tabs_except_first(driver: webdriver.Chrome):
-  num_tabs = len(driver.window_handles)
-
-  # If more than 1 tab found, close the rest
-  if num_tabs > 1:
-    for i in range(num_tabs - 1, 0, -1):
-      switch_to_tab(i, driver)
-      close_current_tab(driver)
-    
-    # Switch focus back to first tab
-    switch_to_tab(0, driver)
-
 def wait_for_exit():
   input('Press ENTER key to continue.')
   exit()
+
 
 if __name__ == '__main__':
   main()
